@@ -1,5 +1,6 @@
 # main.py
 import os
+import time
 from dotenv import load_dotenv
 from git_utils import get_git_diff, create_branch, add_commit_push, create_pr
 from llama_generator import generate_pr_text
@@ -8,7 +9,7 @@ load_dotenv()
 def main():
     repo_name = os.getenv("REPO_NAME")
     base_branch = os.getenv("BASE_BRANCH", "main")
-    head_branch = os.getenv("HEAD_BRANCH", "feature-branch")
+    head_branch = f"feature-branch-{int(time.time())}"
 
     # Step 1: get current git diff
     diff_text = get_git_diff()
