@@ -1,2 +1,5 @@
 PyGithub
 python-dotenv
+torch
+numpy
+matplotlib
