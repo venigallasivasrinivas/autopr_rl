@@ -16,7 +16,7 @@ def create_branch(branch_name):
 def add_commit_push(commit_message, branch_name):
     run("git add .")
     run(f'git commit -m "{commit_message}"')
-    run(f"git push origin {branch_name}")
+    run(f"git push origin {branch_name}") #nice
 
 def create_pr(title, body, base, head):
     # Requires `gh` CLI installed and authenticated
