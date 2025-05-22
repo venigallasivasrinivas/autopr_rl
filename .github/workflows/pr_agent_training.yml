@@ -1,15 +1,17 @@
-name: Train Agent on PR
+name: Train and AutoPR Agent on PR
 
 on:
   pull_request:
-    branches: [main]  # or your target branch
+    branches: [main]
 
 jobs:
-  train:
+  autopr:
     runs-on: ubuntu-latest
 
-    env:  # ✅ This makes GH_PAT available to all steps (including Python)
+    env:
       GH_PAT: ${{ secrets.GH_PAT }}
+      REPO_NAME: your-username/your-repo-name
+      BASE_BRANCH: main
 
     steps:
     - name: Checkout code
@@ -29,11 +31,16 @@ jobs:
       run: |
         python -m rl.rl_autopr
 
+    - name: Run Auto PR Generator
+      run: |
+        echo "$GH_PAT" | gh auth login --with-token
+        python main.py
+
     - name: Add comment to PR
       if: github.event_name == 'pull_request'
       uses: peter-evans/create-or-update-comment@v4
       with:
-        token: ${{ secrets.GH_PAT }}  # ✅ using your secret here is fine
+        token: ${{ secrets.GH_PAT }}
         issue-number: ${{ github.event.pull_request.number }}
         body: |
-          ✅ Agent training script was triggered successfully!
+          ✅ Agent training and PR generation completed successfully!
