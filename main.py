@@ -1,28 +1,44 @@
 # main.py
-
 import os
 from dotenv import load_dotenv
-from gh_diff import get_git_diff
-from pr_generator import generate_pr_text
-from github_api import create_pull_request
-from github import Github
+from git_utils import get_git_diff, create_branch, add_commit_push, create_pr
+from llama_generator import generate_pr_text
+load_dotenv()
 
 def main():
-    load_dotenv()
-    diff = get_git_diff()
-    pr_text = generate_pr_text(diff)
-
-    print("\n=== Generated PR ===\n")
-    print(pr_text)
-
-    token = os.getenv("GITHUB_TOKEN")
     repo_name = os.getenv("REPO_NAME")
-    head_branch = os.getenv("HEAD_BRANCH", "feature-branch")
     base_branch = os.getenv("BASE_BRANCH", "main")
+    head_branch = os.getenv("HEAD_BRANCH", "feature-branch")
 
-    title, body = pr_text.split('\n', 1)
-    pr_number, url = create_pull_request(token, repo_name, title, body, head_branch, base_branch)
-    print(f"\nPull Request created: {url} (#{pr_number})")
+    # Step 1: get current git diff
+    diff_text = get_git_diff()
+    if not diff_text.strip():
+        print("No changes detected. Exiting.")
+        return
+
+    # Step 2: generate PR title and body using LLaMA (or dummy)
+    title, body = generate_pr_text(diff_text)
+    print(f"Generated PR Title:\n{title}")
+    print(f"Generated PR Body:\n{body}\n")
+
+    # Step 3: Create new git branch, commit changes, push
+    try:
+        create_branch(head_branch)
+    except Exception as e:
+        print(f"Warning: Could not create branch (may already exist): {e}")
+
+    try:
+        add_commit_push(body, head_branch)
+    except Exception as e:
+        print(f"Failed to add, commit, or push changes: {e}")
+        return
+
+    # Step 4: Create pull request with gh CLI
+    try:
+        output = create_pr(title, body, base_branch, head_branch)
+        print(f"Pull request created:\n{output}")
+    except Exception as e:
+        print(f"Failed to create PR: {e}")
 
 if __name__ == "__main__":
     main()
