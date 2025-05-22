@@ -3,3 +3,4 @@ python-dotenv
 torch
 numpy
 matplotlib
+python-dotenv

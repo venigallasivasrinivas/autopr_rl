@@ -2,6 +2,19 @@ import torch
 from rl.agent import DQNAgent
 from rl.env import SimpleEnv
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # Load .env file for local testing
+
+token = os.getenv("GH_PAT")
+
+if not token:
+    raise ValueError("GH_PAT not found in environment variables.")
+
+# You can now use `token` in your GitHub-related logic
+print("GitHub token loaded securely ✅")
+
 def train_rl_agent():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     env = SimpleEnv()
