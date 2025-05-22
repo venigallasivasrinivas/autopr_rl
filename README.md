@@ -1,54 +1,67 @@
-✅ README Update Suggestions
+🚀 AutoPR-RL: AI-powered Pull Request Title & Description Generator ✍️🤖
 
-🔹 Project Overview
+AutoPR-RL is a handy tool that helps developers write better pull request (PR) titles and descriptions automatically.
+It reads the changes in your code (git diff) and uses a local AI model (LLaMA 2 via Ollama) to generate clear, meaningful PR text. ✨
 
-Briefly describe what the project does, e.g.:
+⸻
 
-Automatically generates PR titles and descriptions using a local Ollama LLaMA model and git diffs.
+🤔 What does it do?
+	•	🔍 Looks at the difference between your current code and the last commit (git diff)
+	•	🧠 Sends this info to a local AI model running on your machine (via Ollama)
+	•	✍️ The AI writes a draft PR title and description for you
+	•	⏳ Saves you time and makes your PRs easier to understand for reviewers
 
-🔹 Installation
+⸻
 
-git clone https://github.com/your-username/autopr_rl.git
+🛠️ How to Set It Up
+
+1. 📥 Clone this repository
+
+Open your terminal and run:
+
+git clone https://github.com/venigallasivasrinivas/autopr_rl.git
 cd autopr_rl
+
+2. 🐍 Create and activate a Python virtual environment
+
+This keeps dependencies separate from your system Python.
+
 python3 -m venv venv
-source venv/bin/activate
+source venv/bin/activate       # On macOS/Linux
+venv\Scripts\activate.bat      # On Windows
+
+3. 📦 Install required Python packages
+
+pip install --upgrade pip
 pip install -r requirements.txt
 
-🔹 Ollama Setup
+(Make sure you have requests and other packages listed in requirements.txt)
 
-Make sure Ollama is installed and the desired model is pulled:
+4. 🤖 Make sure you have Ollama installed and running locally
+	•	Download and install Ollama from https://ollama.com/
+	•	Run the Ollama server and make sure your LLaMA 2 model is ready to receive requests.
 
-ollama run llama2
-
-🔹 Usage
+5. ▶️ Run the tool
 
 python main.py
 
-This will:
-	•	Fetch the current git diff
-	•	Send it to the Ollama LLaMA model via llama_generator.py
-	•	Generate a draft PR title and description
-	•	(Optionally) Commit and push the changes
+The tool will read your current git diff and generate a suggested PR title and description.
 
-🔹 File Descriptions
-	•	main.py: Entry point for the PR generator
-	•	llama_generator.py: Uses Ollama API to generate PR content
-	•	llama_improver.py: Optionally refines the PR content
-	•	utils.py: Git diff utilities
+⸻
 
-🔹 Configurable Settings
+⚠️ Troubleshooting & Tips
+	•	❗ If you see errors related to model loading, check Ollama is running and the model name in llama_generator.py matches your installed model.
+	•	🔧 Update OLLAMA_API_URL in llama_generator.py if you changed the port or host.
+	•	🆕 If you don’t have a git repo initialized, run git init first in your project folder.
 
-If applicable, describe things like:
-	•	Default model (llama2, mistral, etc.)
-	•	Git branch creation
-	•	Prompt templates
+⸻
 
-🔹 Example
+🤝 How to Contribute?
 
-# Sample output
-Title: Refactor PR generator to use streaming model response
+Feel free to submit issues or pull requests to improve the model, add reinforcement learning features, or improve integration.
 
-Description:
-- Switched to streaming API for faster response time
-- Handled JSON decode errors gracefully
-- Updated model to `llama2` for better local inference
+⸻
+
+📄 License
+
+MIT License © Venigalla Siva Srinivas
