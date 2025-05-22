@@ -1,36 +1,28 @@
-name: Train Agent on PR
+name: PR Agent Training
 
 on:
   pull_request:
-    branches: [main]  # or your target branch
 
 jobs:
   train:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
+      - name: Setup Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-    - name: Run agent training script
-      run: |
-        python -m rl.rl_autopr
-
-    - name: Add comment to PR
-      if: github.event_name == 'pull_request'
-      uses: peter-evans/create-or-update-comment@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        issue-number: ${{ github.event.pull_request.number }}
-        body: |
-          ✅ Agent training script was triggered successfully!
+      - name: Run RL training script
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        working-directory: ${{ github.workspace }}
+        run: python -m rl.rl_autopr
