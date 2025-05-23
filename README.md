@@ -10,6 +10,29 @@ AutoPR RL Agent connects GitHub PR events with a DQN-based Reinforcement Learnin
 
 ⸻
 
+🧠 Reinforcement Learning in AutoPR RL Agent
+
+This project uses Reinforcement Learning (RL) to enable an AI agent to learn and improve automatically by interacting with its environment—in this case, the changes and feedback from GitHub Pull Requests (PRs).
+
+What is Reinforcement Learning?
+
+Reinforcement Learning is a type of machine learning where an agent learns to make decisions by performing actions and receiving feedback in the form of rewards or penalties. Over time, the agent aims to maximize its cumulative reward by learning optimal policies through trial and error.
+
+How Reinforcement Learning is Applied Here
+	•	Agent: The AI component that learns from PR data.
+	•	Environment: The GitHub repository and its pull requests.
+	•	Actions: Training updates triggered on new PRs, model adjustments, or improvements.
+	•	Rewards: Implicit feedback from successful training runs and improved agent performance.
+
+Using Deep Q-Learning (DQN), the agent approximates the best actions to take (like which model parameters to update or which training steps to prioritize) based on the state of the repository and code changes.
+
+Why RL for AutoPR?
+	•	Continuous Learning: The agent iteratively trains whenever a new PR is opened or updated, adapting to new code changes and learning from them.
+	•	Automation: Reduces manual intervention by automating training and fine-tuning processes.
+	•	Improved Model Performance: By learning from developer workflows and feedback loops, the AI model continually evolves, potentially increasing accuracy and efficiency in handling PRs.
+
+This setup serves as a foundation for building more complex reward mechanisms and richer training loops, turning PRs into a dynamic training ground for smarter AI agents.
+
 ✨ Key Features
 	•	🎯 Reinforcement Learning agent using Deep Q-Network (DQN) in PyTorch
 	•	🔁 Automated training triggered by GitHub Pull Requests
