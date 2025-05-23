@@ -47,7 +47,16 @@ This setup serves as a foundation for building more complex reward mechanisms an
 
  Training progress plot attached as an example:
 ![image](https://github.com/user-attachments/assets/1d142b05-930a-4b01-a408-6daefb726d99)
-
+We need to create a Pull Request:
+<img width="710" alt="Screenshot 2025-05-23 at 8 26 23 AM" src="https://github.com/user-attachments/assets/e3d58b34-0c59-4bee-9bea-90464144c141" />
+Automatically the AutoPR kicks in:
+<img width="705" alt="Screenshot 2025-05-23 at 8 27 46 AM" src="https://github.com/user-attachments/assets/d6d19ff4-3feb-4787-98d4-216a9527e757" />
+this is how a job looks like when starting:
+<img width="1489" alt="Screenshot 2025-05-23 at 8 28 01 AM" src="https://github.com/user-attachments/assets/2787cd20-a594-4853-9ef1-a00d4dabc37c" />
+This may take a while and if no issues it gets succeeded:
+<img width="1500" alt="Screenshot 2025-05-23 at 8 32 30 AM" src="https://github.com/user-attachments/assets/a3a6bd5c-55e1-444c-a104-0bbf316b7886" />
+Now you can merge the Pull request if all the checks has passed.
+<img width="643" alt="Screenshot 2025-05-23 at 8 36 14 AM" src="https://github.com/user-attachments/assets/549df95c-a458-4526-9bea-dc21e415a952" />
 
 ⸻
 
