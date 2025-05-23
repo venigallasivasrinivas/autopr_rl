@@ -50,7 +50,8 @@ This setup serves as a foundation for building more complex reward mechanisms an
 We need to create a Pull Request:
 <img width="710" alt="Screenshot 2025-05-23 at 8 26 23 AM" src="https://github.com/user-attachments/assets/e3d58b34-0c59-4bee-9bea-90464144c141" />
 Automatically the AutoPR kicks in:
-<img width="705" alt="Screenshot 2025-05-23 at 8 27 46 AM" src="https://github.com/user-attachments/assets/d6d19ff4-3feb-4787-98d4-216a9527e757" />
+<img width="705" alt="Screenshot 2025-05-23 at 8 27 46 AM" src="https://github.com/user-attachments/assets/a4d10230-47ee-46c2-9770-692247cb21bd" />
+
 this is how a job looks like when starting:
 <img width="1489" alt="Screenshot 2025-05-23 at 8 28 01 AM" src="https://github.com/user-attachments/assets/2787cd20-a594-4853-9ef1-a00d4dabc37c" />
 This may take a while and if no issues it gets succeeded:
