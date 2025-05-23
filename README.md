@@ -114,26 +114,6 @@ env:
 
 ⸻
 
-📂 Project Structure
-
-autopr_rl/
-├── rl/
-│   ├── agent.py            # DQN agent implementation
-│   ├── env.py              # RL environment interacting with PRs
-│   ├── rl_autopr.py        # Training loop for AutoPR agent
-│   ├── llama_generator.py  # Optional language model integration
-│   └── git_utils.py        # GitHub helper functions
-├── .github/
-│   └── workflows/
-│       └── train_agent.yml # CI/CD workflow for training agent on PRs
-├── main.py                 # (Optional) entry point
-├── requirements.txt
-├── .gitignore
-└── README.md
-
-
-⸻
-
 🧠 RL Agent Summary
 	•	Agent: DQNAgent with replay buffer, epsilon-greedy exploration
 	•	Library: PyTorch
@@ -154,7 +134,7 @@ Make sure GH_PAT is set for GitHub access.
 
 🤝 Contributing
 
-We welcome contributions!
+I welcome contributions!
 	•	Open issues
 	•	Create pull requests
 	•	Suggest improvements to RL logic or GitHub integrations
