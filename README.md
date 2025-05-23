@@ -36,13 +36,14 @@ Why RL for AutoPR?
 
 This setup serves as a foundation for building more complex reward mechanisms and richer training loops, turning PRs into a dynamic training ground for smarter AI agents.
 
-✨ Key Features
-	•	🎯 Reinforcement Learning agent using Deep Q-Network (DQN) in PyTorch
-	•	🔁 Automated training triggered by GitHub Pull Requests
-	•	🛠️ GitHub Actions integrated workflow (.github/workflows/train_agent.yml)
-	•	📤 Auto-posts results to PRs as comments
-	•	🔧 Easy setup, clean modular Python code
-	•	💡 Extensible design for custom RL environments and agents
+### ✨ Key Features
+
+- 🎯 **Reinforcement Learning agent** using Deep Q-Network (DQN) in PyTorch  
+- 🔁 **Automated training** triggered by GitHub Pull Requests  
+- 🛠️ **GitHub Actions integrated workflow** (`.github/workflows/train_agent.yml`)  
+- 📤 **Auto-posts results** to PRs as comments  
+- 🔧 **Easy setup**, clean modular Python code  
+- 💡 **Extensible design** for custom RL environments and agents  
 
  Training progress plot attached as an example:
 ![image](https://github.com/user-attachments/assets/1d142b05-930a-4b01-a408-6daefb726d99)
