@@ -45,6 +45,10 @@ This setup serves as a foundation for building more complex reward mechanisms an
 	•	🔧 Easy setup, clean modular Python code
 	•	💡 Extensible design for custom RL environments and agents
 
+ Training progress plot attached as an example:
+![image](https://github.com/user-attachments/assets/1d142b05-930a-4b01-a408-6daefb726d99)
+
+
 ⸻
 
 🚀 Getting Started
