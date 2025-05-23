@@ -1,5 +1,9 @@
 🚀 AutoPR RL Agent
 
+![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
+![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/venigallasivasrinivas/autopr_rl/train_agent.yml?branch=main)
+
 AutoPR RL Agent is a reinforcement learning system that automatically trains an agent on every Pull Request (PR) update to your GitHub repo. This project brings continuous learning directly into your development workflow, using GitHub Actions and PyTorch-based RL agents.
 
 ⸻
@@ -166,7 +170,27 @@ I welcome contributions!
 
 📜 License
 
-This project is licensed under the MIT License.
+MIT License
+
+Copyright (c) 2025 Venigalla Siva Srinivas
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ⸻
 
