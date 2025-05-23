@@ -1,122 +1,162 @@
-# AutoPR RL Agent 🚀
+🚀 AutoPR RL Agent
 
-Welcome to **AutoPR RL Agent**, a cutting-edge reinforcement learning system designed to **automatically train AI agents triggered by Pull Requests (PRs)** on GitHub. This project aims to revolutionize how AI models improve iteratively through real developer workflows.
+AutoPR RL Agent is a reinforcement learning system that automatically trains an agent on every Pull Request (PR) update to your GitHub repo. This project brings continuous learning directly into your development workflow, using GitHub Actions and PyTorch-based RL agents.
 
----
+⸻
 
-## 🚩 What is AutoPR RL Agent?
+🧠 What Is This Project?
 
-AutoPR RL Agent integrates:
-- **Reinforcement Learning (RL)** techniques for training agents dynamically.
-- Seamless **GitHub Actions** automation triggered by PR events.
-- Modular Python code with state-of-the-art deep learning libraries (like PyTorch).
+AutoPR RL Agent connects GitHub PR events with a DQN-based Reinforcement Learning agent. Every time a developer opens or updates a PR, the RL agent is retrained using the latest state of the repository, encouraging adaptive learning through real-world development workflows.
 
-With every PR, the agent **trains on new data or code changes**, improving continuously — making it a potential game-changer in automated software development and AI model fine-tuning.
+⸻
 
----
+✨ Key Features
+	•	🎯 Reinforcement Learning agent using Deep Q-Network (DQN) in PyTorch
+	•	🔁 Automated training triggered by GitHub Pull Requests
+	•	🛠️ GitHub Actions integrated workflow (.github/workflows/train_agent.yml)
+	•	📤 Auto-posts results to PRs as comments
+	•	🔧 Easy setup, clean modular Python code
+	•	💡 Extensible design for custom RL environments and agents
 
-## ✨ Features
+⸻
 
-- Trigger training on every pull request to the main branch.
-- Manage dependencies via `requirements.txt`.
-- Post success comments automatically on PRs with results.
-- Fully configurable via GitHub Actions workflow.
-- Easily extensible for new RL algorithms and environments.
-- Clean, modular, and maintainable Python codebase.
+🚀 Getting Started
 
----
+Prerequisites
+	•	Python 3.9+
+	•	GitHub repository with Actions enabled
+	•	GitHub Personal Access Token (GH_PAT) with appropriate scopes
 
-## 🚀 Getting Started
+⸻
 
-### Prerequisites
+🔧 Installation
+	1.	Clone the repository
 
-- Python 3.9+
-- GitHub repository with GitHub Actions enabled.
-- Personal Access Token (`GH_PAT`) with repo permissions.
+git clone https://github.com/venigallasivasrinivas/autopr_rl.git
+cd autopr_rl
 
-### Installation
-
-1. Clone the repo:
-
-   ```bash
-   git clone https://github.com/venigallasivasrinivas/autopr_rl.git
-   cd autopr_rl
-
-	2.	Create and activate a virtual environment:
+	2.	Create and activate a virtual environment
 
 python -m venv venv
-source venv/bin/activate  # Linux/macOS
+source venv/bin/activate  # macOS/Linux
 venv\Scripts\activate     # Windows
 
-
-	3.	Install dependencies:
+	3.	Install dependencies
 
 pip install -r requirements.txt
 
+	4.	Set your GitHub token
+See next section below 👇
 
-	4.	Set your GH_PAT environment variable locally (for testing):
+⸻
 
-export GH_PAT="your_personal_access_token"
+🔐 Setting Up GitHub Personal Access Token (GH_PAT)
 
+To allow GitHub API interactions (like commenting on PRs), you must create and configure a token:
+
+1. Generate a Token
+	•	Go to: https://github.com/settings/tokens
+	•	Click “Generate new token (classic)”
+	•	Enable:
+	•	repo
+	•	(Optional) workflow for advanced control
+	•	Copy and store your token securely
+
+2. Set GH_PAT Locally
+
+Linux/macOS:
+
+export GH_PAT="your_token_here"
+
+To persist:
+
+echo 'export GH_PAT="your_token_here"' >> ~/.bashrc
+source ~/.bashrc
+
+Windows CMD:
+
+set GH_PAT=your_token_here
+
+Windows PowerShell:
+
+$env:GH_PAT="your_token_here"
+
+3. Add to GitHub Actions
+	•	Go to Repo > Settings > Secrets and Variables > Actions
+	•	Click New repository secret
+	•	Name: GH_PAT
+	•	Value: your token
+
+Then reference it inside .github/workflows/train_agent.yml:
+
+env:
+  GH_PAT: ${{ secrets.GH_PAT }}
 
 
 ⸻
 
-🧠 How It Works
-	•	When a Pull Request is opened or updated on the main branch,
-	•	The GitHub Actions workflow triggers,
-	•	It sets up Python, installs dependencies, and runs the RL agent training script,
-	•	On success, it posts a comment on the PR confirming the training completion.
-
-The RL agent uses PyTorch to learn and adapt from the changes made in each PR, enabling continuous, automatic improvement.
+🧪 How It Works
+	•	A PR is opened or updated.
+	•	GitHub Actions triggers the RL training job.
+	•	The RL agent (DQNAgent) trains using your repo as the environment.
+	•	Training success and basic results are posted as comments on the PR.
 
 ⸻
 
-🔧 Usage
-
-Run the training script locally:
-
-python -m rl.rl_autopr
-
-Make sure your environment variable GH_PAT is set to allow API interactions with GitHub.
-
-⸻
-
-📁 Project Structure
+📂 Project Structure
 
 autopr_rl/
 ├── rl/
-│   ├── rl_autopr.py          # Main RL training agent
-│   ├── git_utils.py          # GitHub interaction helpers
-│   └── llama_generator.py    # Language model integration
+│   ├── agent.py            # DQN agent implementation
+│   ├── env.py              # RL environment interacting with PRs
+│   ├── rl_autopr.py        # Training loop for AutoPR agent
+│   ├── llama_generator.py  # Optional language model integration
+│   └── git_utils.py        # GitHub helper functions
 ├── .github/
 │   └── workflows/
-│       └── train_agent.yml   # GitHub Actions workflow
-├── requirements.txt          # Python dependencies
-├── README.md                 # This file
-└── main.py                   # Entry point (if applicable)
+│       └── train_agent.yml # CI/CD workflow for training agent on PRs
+├── main.py                 # (Optional) entry point
+├── requirements.txt
+├── .gitignore
+└── README.md
 
+
+⸻
+
+🧠 RL Agent Summary
+	•	Agent: DQNAgent with replay buffer, epsilon-greedy exploration
+	•	Library: PyTorch
+	•	Environment: Custom GitHub PR environment (env.py)
+	•	Training Loop: Modular and customizable (rl_autopr.py)
+
+⸻
+
+🛠 Usage
+
+Train Locally
+
+python -m rl.rl_autopr
+
+Make sure GH_PAT is set for GitHub access.
 
 ⸻
 
 🤝 Contributing
 
-We love contributions! Feel free to:
-	•	Open issues for bugs or feature requests
-	•	Submit pull requests with improvements
-	•	Suggest enhancements to the RL models or workflow
+We welcome contributions!
+	•	Open issues
+	•	Create pull requests
+	•	Suggest improvements to RL logic or GitHub integrations
 
 ⸻
 
 📜 License
 
-This project is licensed under the MIT License — see the LICENSE file for details.
+This project is licensed under the MIT License.
 
 ⸻
 
-Thank you for checking out AutoPR RL Agent — let’s build smarter, automated AI agents together! 💡🤖
-
-⸻
+👨‍💻 Author
 
 Venigalla Siva Srinivas
-Developer & Innovator
+Reinforcement Learning Enthusiast | Developer | Innovator
