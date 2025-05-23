@@ -51,8 +51,6 @@ We need to create a Pull Request:
 <img width="710" alt="Screenshot 2025-05-23 at 8 26 23 AM" src="https://github.com/user-attachments/assets/e3d58b34-0c59-4bee-9bea-90464144c141" />
 Automatically the AutoPR kicks in:
 <img width="705" alt="Screenshot 2025-05-23 at 8 27 46 AM" src="https://github.com/user-attachments/assets/a4d10230-47ee-46c2-9770-692247cb21bd" />
-
-this is how a job looks like when starting:
 <img width="1489" alt="Screenshot 2025-05-23 at 8 28 01 AM" src="https://github.com/user-attachments/assets/2787cd20-a594-4853-9ef1-a00d4dabc37c" />
 This may take a while and if no issues it gets succeeded:
 <img width="1500" alt="Screenshot 2025-05-23 at 8 32 30 AM" src="https://github.com/user-attachments/assets/a3a6bd5c-55e1-444c-a104-0bbf316b7886" />
