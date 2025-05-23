@@ -2,7 +2,6 @@
 
 ![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/venigallasivasrinivas/autopr_rl/train_agent.yml?branch=main)
 
 AutoPR RL Agent is a reinforcement learning system that automatically trains an agent on every Pull Request (PR) update to your GitHub repo. This project brings continuous learning directly into your development workflow, using GitHub Actions and PyTorch-based RL agents.
 
