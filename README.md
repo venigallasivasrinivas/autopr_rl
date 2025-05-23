@@ -30,23 +30,34 @@ Prerequisites
 ⸻
 
 🔧 Installation
-	1.	Clone the repository
+
+Follow these steps to set up the project locally:
+
+1. Clone the Repository
 
 git clone https://github.com/venigallasivasrinivas/autopr_rl.git
 cd autopr_rl
 
-	2.	Create and activate a virtual environment
+2. Create and Activate a Virtual Environment
+
+macOS/Linux:
 
 python -m venv venv
-source venv/bin/activate  # macOS/Linux
-venv\Scripts\activate     # Windows
+source venv/bin/activate
 
-	3.	Install dependencies
+Windows:
+
+python -m venv venv
+venv\Scripts\activate
+
+3. Install Dependencies
 
 pip install -r requirements.txt
 
-	4.	Set your GitHub token
-See next section below 👇
+4. Set Your GitHub Token
+
+You’ll need to set a GitHub Personal Access Token to enable GitHub API interactions.
+👉 See the next section: 🔐 Setting Up GitHub Personal Access Token (GH_PAT)
 
 ⸻
 
